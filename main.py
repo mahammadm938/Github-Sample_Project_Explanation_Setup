@@ -1,15 +1,18 @@
 print("Hello world")
 
-import asyncio
+# Create Cosmos DB client
+cosmos_client = CosmosClient(
+    COSMOS_ENDPOINT,
+    COSMOS_KEY
+)
 
-async def hello_world():
-    name = input("Enter your name: ")
+# Get database
+database = cosmos_client.get_database_client(
+    COSMOS_DATABASE
+)
 
-    print(f"Hello {name}!")
+# Get container
+container = database.get_container_client(
+    COSMOS_CONTAINER
+)
 
-    await asyncio.sleep(1)
-
-    print("Welcome to Python World")
-
-
-asyncio.run(hello_world())
