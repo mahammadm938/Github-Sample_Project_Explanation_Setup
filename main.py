@@ -27,3 +27,14 @@ container.upsert_item(item)
 print(f"Hello {name}!")
 print("Welcome to Python World")
 print("Data saved to Cosmos DB!")
+import asyncio
+
+async def hello_world():
+    print("Hello, World!")
+
+    await asyncio.sleep(1)
+
+    print("Welcome to Python World")
+
+
+asyncio.run(hello_world())
